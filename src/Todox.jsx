@@ -88,7 +88,6 @@ const Todox = () => {
     return (
         <Container maxWidth="sm" sx={{ mt: 8 ,
             // border: "1px solid red"
-
         }}>
             <Typography variant="h4" align="center" gutterBottom>
                 TASK MASTER
@@ -98,8 +97,6 @@ const Todox = () => {
 
 
             <Stack direction="row" spacing={2} sx={{ mb: 4 ,
-                // border: "1px solid red"
-
             }}>
                 <TextField
                     fullWidth
@@ -109,7 +106,7 @@ const Todox = () => {
                     onChange={(e) => setInput(e.target.value)}
                 />
                 <Button variant="contained" onClick={handleAddOrUpdate}>
-                    ADD
+                    ADD {/* {editIndex !== null ? 'Update' : 'Add'} */}
                 </Button>
             </Stack>
 
