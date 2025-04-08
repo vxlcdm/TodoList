@@ -14,7 +14,7 @@ import {
     DialogActions
 } from '@mui/material';
 
-const LOCAL_KEY = 'mui_todos';
+const todoKey = 'keyOfTodos';
 
 const Todox = () => {
     const [todos, setTodos] = useState([]);
@@ -27,7 +27,7 @@ const Todox = () => {
     
    
     const showTodoList=() => {
-        const storedTodos = localStorage.getItem(LOCAL_KEY);
+        const storedTodos = localStorage.getItem(todoKey);
         if (storedTodos) {
             try {
                 const parsed = JSON.parse(storedTodos);
@@ -55,12 +55,12 @@ const Todox = () => {
             const updated = [...todos];
             updated[editIndex] = input;
             setTodos(updated);
-            localStorage.setItem(LOCAL_KEY, JSON.stringify(updated));
+            localStorage.setItem(todoKey, JSON.stringify(updated));
             setEditIndex(null);
         } else {
             const updated = [...todos, input];
             setTodos(updated);
-            localStorage.setItem(LOCAL_KEY, JSON.stringify(updated));
+            localStorage.setItem(todoKey, JSON.stringify(updated));
             
 
         }
@@ -71,7 +71,7 @@ const Todox = () => {
     const handleDelete = (index) => {
         const updated = todos.filter((_, i) => i !== index);
         setTodos(updated);
-        localStorage.setItem(LOCAL_KEY, JSON.stringify(updated));
+        localStorage.setItem(todoKey, JSON.stringify(updated));
     };
 
     const handleEdit = (index) => {
